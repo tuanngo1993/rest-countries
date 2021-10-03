@@ -1,0 +1,35 @@
+{
+    "name": "rest-countries-api-with-color-theme-switcher-master",
+    "version": "1.0.0",
+    "description": "![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)",
+    "main": "index.js",
+    "scripts": {
+        "format": "npx prettier --write .",
+        "build": "webpack --config webpack.config.js",
+        "start": "npx webpack-dev-server & npm run build"
+    },
+    "author": "Tuan Ngo",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.21.4"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.15.5",
+        "@babel/preset-env": "^7.15.6",
+        "acorn": "^8.5.0",
+        "babel-loader": "^8.2.2",
+        "babel-polyfill": "^6.26.0",
+        "css-loader": "^6.2.0",
+        "file-loader": "^6.2.0",
+        "postcss": "^8.3.6",
+        "postcss-loader": "^6.1.1",
+        "postcss-preset-env": "^6.7.0",
+        "prettier": "2.4.0",
+        "style-loader": "^3.2.1",
+        "tailwindcss": "^2.2.15",
+        "url-loader": "^4.1.1",
+        "webpack": "^5.52.1",
+        "webpack-cli": "^4.8.0",
+        "webpack-dev-server": "^4.2.1"
+    }
+}
