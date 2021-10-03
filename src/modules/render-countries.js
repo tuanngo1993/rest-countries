@@ -28,7 +28,7 @@ export function renderCountries(countries, filter = false) {
 
     // Clean up context of parent block before rendering selected countries inside
     countriesEl.innerHTML = ''
-
+    
     // Add these countries into array
     for (let i = 0; i < countries.length; i++) {
         countriesArr.push(countryCard(countries[i]))

@@ -1,8 +1,6 @@
 import { renderCountries } from './render-countries'
 
 export function handleCountrySearch(e) {
-    if (e.target.value === '') return
-
     const storageCountries = JSON.parse(localStorage.getItem('countries'))
     const regionSelect = e.target
         .closest('div')
@@ -10,11 +8,15 @@ export function handleCountrySearch(e) {
 
     regionSelect.selectedIndex = 0
 
-    let country = storageCountries.filter((item) =>
-        item.altSpellings.includes(e.target.value)
-    )
+    if (e.target.value === '') {
+        renderCountries(storageCountries, true)
+    } else {
+        let country = storageCountries.filter((item) =>
+            item.altSpellings.find(country => country.toLowerCase().includes(e.target.value.toLowerCase()))
+        )
 
-    if (!country.length) country = null
+        if (!country.length) country = null
 
-    renderCountries(country, true)
+        renderCountries(country, true)
+    }
 }

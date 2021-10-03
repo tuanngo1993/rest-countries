@@ -1,11 +1,12 @@
 import '../styles/style.css'
+import '../styles/loader.css'
 import { renderCountries } from '../modules/render-countries'
 import { fetchData } from '../modules/fetch-data'
 import { renderCountry } from '../modules/render-country'
 
 // Will be triggered after history.addState()
 window.onpopstate = () => {
-    if (window.location.pathname === '/') {
+    if (window.location.pathname === '/' || window.location.pathname === '/rest-countries/') {
         renderCountries(JSON.parse(localStorage.getItem('countries')))
     } else {
         renderCountry(
