@@ -5,7 +5,7 @@ export function countryDetails(country) {
          <div>
             <button class="back-btn inline-flex items-center gap-2 rounded-md py-1 px-2 dark:bg-gray-700">
                 <div>
-                    <img class="dark:filter dark:brightness-0 dark:invert" src="./src/images/icon-back.png" alt="Back">
+                    <img class="dark:filter dark:brightness-0 dark:invert" src="./src/images/icon-return.png" alt="Back" />
                 </div>
                 <div>Back</div>
             </button>
