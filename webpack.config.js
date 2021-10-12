@@ -1,3 +1,6 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
 // Webpack uses this to work with directories
 const path = require('path')
 
@@ -20,7 +23,7 @@ module.exports = {
     // Depending on mode Webpack will apply different things
     // on the final bundle. For now, we don't need production's JavaScript
     // minifying and other things, so let's set mode to development
-    mode: 'development',
+    mode: 'production',
 
     watch: true,
 
@@ -37,7 +40,7 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/i,
-                exclude: /(node_modules)/,
+                include: path.resolve(__dirname, 'src'),
                 use: {
                     loader: 'babel-loader',
                     options: {
@@ -47,7 +50,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader', 'postcss-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
             },
             {
                 // Now we apply rule for images
@@ -62,4 +65,12 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        minimizer: [
+            // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+            // `...`,
+            new CssMinimizerPlugin(),
+        ],
+    },
+    plugins: [new MiniCssExtractPlugin()],
 }
